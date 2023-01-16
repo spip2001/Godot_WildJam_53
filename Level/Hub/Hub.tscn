@@ -56,6 +56,9 @@ __meta__ = {
 "_edit_lock_": true
 }
 
+[node name="SpawnFOREST" type="Node2D" parent="."]
+position = Vector2( 47, 576 )
+
 [node name="Ship" type="Area2D" parent="."]
 position = Vector2( 640, 166 )
 
@@ -64,7 +67,7 @@ position = Vector2( 46, 12 )
 z_index = -2
 frames = SubResource( 7 )
 animation = "Smoking"
-frame = 3
+frame = 2
 playing = true
 
 [node name="AnimatedSprite2" type="AnimatedSprite" parent="Ship"]
@@ -72,7 +75,7 @@ position = Vector2( -6, -5 )
 z_index = -2
 frames = SubResource( 7 )
 animation = "Smoking"
-frame = 2
+frame = 1
 playing = true
 
 [node name="ShipSprite" type="Sprite" parent="Ship"]

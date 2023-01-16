@@ -2,6 +2,8 @@ extends Node2D
 
 onready var player = $"../Player"
 
+var spawnName
+
 var HUB = "HUB"
 var FOREST = "FOREST"
 
@@ -12,13 +14,19 @@ func _ready():
 
 
 func changeLevel(from, to):
-	print(from)
-	print(to)
+	var nextLevel
 	if to == FOREST:
-		var nextLevel = load("res://Level/Forest/Forest.tscn").instance()
-		self.remove_child(self.get_child(0))
-		self.add_child(nextLevel)
-		self.get_child(0).name = to
+		nextLevel = load("res://Level/Forest/Forest.tscn").instance()
+	elif to == HUB:
+		nextLevel = load("res://Level/Hub/Hub.tscn").instance()
 		
-		player.position = self.get_child(0).get_node("Spawn" + from).position
+	self.remove_child(self.get_child(0))
+	self.add_child(nextLevel)
+	self.get_child(0).name = to
+	
+	spawnName = "Spawn" + from
+	playerRespawn()
+		
+func playerRespawn():
+	player.position = self.get_child(0).get_node(spawnName).position
 		

@@ -1,8 +1,16 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Level/Forest/Forest.tres" type="TileSet" id=1]
+[ext_resource path="res://Level/Forest/Forest.gd" type="Script" id=2]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 1087, 80 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 20, 50.5 )
 
 [node name="Forest" type="Node2D"]
+script = ExtResource( 2 )
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = ExtResource( 1 )
@@ -11,3 +19,19 @@ tile_data = PoolIntArray( 262149, 0, 196609, 262150, 0, 196610, 262151, 0, 19661
 
 [node name="SpawnHUB" type="Node2D" parent="."]
 position = Vector2( 1234, 615 )
+
+[node name="OOB" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="OOB"]
+position = Vector2( 759, 850 )
+shape = SubResource( 1 )
+
+[node name="HubTrigger" type="Area2D" parent="."]
+position = Vector2( 1271, 609 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HubTrigger"]
+position = Vector2( 10, -4.5 )
+shape = SubResource( 2 )
+
+[connection signal="body_entered" from="OOB" to="." method="_on_OOB_body_entered"]
+[connection signal="body_entered" from="HubTrigger" to="." method="_on_HubTrigger_body_entered"]
