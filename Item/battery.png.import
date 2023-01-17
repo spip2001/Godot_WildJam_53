@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Hub.png-f5ae0ca620aac1c247cfe24d51275dc7.stex"
+path="res://.import/battery.png-7dc1e0e2b97afc13c7d311a5a5935994.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Niveaux/Hub/Hub.png"
-dest_files=[ "res://.import/Hub.png-f5ae0ca620aac1c247cfe24d51275dc7.stex" ]
+source_file="res://Item/battery.png"
+dest_files=[ "res://.import/battery.png-7dc1e0e2b97afc13c7d311a5a5935994.stex" ]
 
 [params]
 

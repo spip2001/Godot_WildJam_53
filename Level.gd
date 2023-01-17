@@ -24,8 +24,9 @@ func changeLevel(from, to):
 	self.add_child(nextLevel)
 	self.get_child(0).name = to
 	
-	spawnName = "Spawn" + from
-	playerRespawn()
+	if to == HUB:
+		spawnName = "Spawn" + from
+		playerRespawn()
 		
 func playerRespawn():
 	player.position = self.get_child(0).get_node(spawnName).position

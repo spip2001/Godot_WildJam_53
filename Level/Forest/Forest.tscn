@@ -1,37 +1,35 @@
 [gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://Level/Forest/Forest.tres" type="TileSet" id=1]
+[ext_resource path="res://Player/FroggerPlayer.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Level/Forest/Forest.gd" type="Script" id=2]
-
-[sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 1087, 80 )
+[ext_resource path="res://Item/Battery.tscn" type="PackedScene" id=3]
 
 [sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 20, 50.5 )
+extents = Vector2( 43.5, 19.5 )
 
 [node name="Forest" type="Node2D"]
 script = ExtResource( 2 )
 
-[node name="TileMap" type="TileMap" parent="."]
-tile_set = ExtResource( 1 )
-format = 1
-tile_data = PoolIntArray( 262149, 0, 196609, 262150, 0, 196610, 262151, 0, 196610, 262152, 0, 196611, 327689, 0, 196608, 327698, 0, 8, 327699, 0, 10, 327700, 0, 10, 327701, 0, 10, 327702, 0, 11, 393226, 0, 196608, 393234, 0, 65544, 393235, 0, 131081, 393236, 0, 131081, 393237, 0, 131081, 393238, 0, 131083, 458763, 0, 196608, 458767, 0, 196609, 458768, 0, 5, 458769, 0, 10, 458770, 0, 65541, 458771, 0, 131081, 458772, 0, 131081, 458773, 0, 131081, 458774, 0, 131083, 524296, 0, 0, 524300, 0, 196609, 524301, 0, 196611, 524304, 0, 196616, 524305, 0, 196617, 524306, 0, 196617, 524307, 0, 196617, 524308, 0, 196617, 524309, 0, 196617, 524310, 0, 196619, 589830, 0, 8, 589831, 0, 10, 589832, 0, 9, 589833, 0, 10, 589834, 0, 10, 589835, 0, 11, 655366, 0, 196616, 655367, 0, 196617, 655368, 0, 196617, 655369, 0, 196617, 655370, 0, 196617, 655371, 0, 196614, 655372, 0, 196610, 655373, 0, 196611, 655375, 0, 8, 655376, 0, 10, 655377, 0, 10, 655378, 0, 10, 655379, 0, 10, 655380, 0, 10, 655381, 0, 10, 655382, 0, 11, 720911, 0, 196616, 720912, 0, 196617, 720913, 0, 196617, 720914, 0, 196617, 720915, 0, 196617, 720916, 0, 196617, 720917, 0, 196617, 720918, 0, 196619 )
-
 [node name="SpawnHUB" type="Node2D" parent="."]
-position = Vector2( 1234, 615 )
+position = Vector2( 627, 693 )
 
 [node name="OOB" type="Area2D" parent="."]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="OOB"]
-position = Vector2( 759, 850 )
-shape = SubResource( 1 )
-
 [node name="HubTrigger" type="Area2D" parent="."]
-position = Vector2( 1271, 609 )
+position = Vector2( 597, 712 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HubTrigger"]
-position = Vector2( 10, -4.5 )
+position = Vector2( 33.5, 26.5 )
 shape = SubResource( 2 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Battery" parent="." instance=ExtResource( 3 )]
+position = Vector2( 621, 38 )
+
+[node name="FroggerPlayer" parent="." instance=ExtResource( 1 )]
+position = Vector2( 628, 689 )
 
 [connection signal="body_entered" from="OOB" to="." method="_on_OOB_body_entered"]
 [connection signal="body_entered" from="HubTrigger" to="." method="_on_HubTrigger_body_entered"]

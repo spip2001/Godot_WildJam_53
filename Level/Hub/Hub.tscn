@@ -1,10 +1,12 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://Level/Hub/Hub.tres" type="TileSet" id=1]
 [ext_resource path="res://Level/Hub/Hub.gd" type="Script" id=2]
 [ext_resource path="res://Level/Hub/ship.png" type="Texture" id=3]
 [ext_resource path="res://Level/Hub/Green.png" type="Texture" id=4]
 [ext_resource path="res://Level/Hub/Smoke.png" type="Texture" id=5]
+[ext_resource path="res://Level/Hub/camp.png" type="Texture" id=6]
+[ext_resource path="res://Player/Player.tscn" type="PackedScene" id=7]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 23, 48.5 )
@@ -67,7 +69,7 @@ position = Vector2( 46, 12 )
 z_index = -2
 frames = SubResource( 7 )
 animation = "Smoking"
-frame = 2
+frame = 1
 playing = true
 
 [node name="AnimatedSprite2" type="AnimatedSprite" parent="Ship"]
@@ -75,7 +77,6 @@ position = Vector2( -6, -5 )
 z_index = -2
 frames = SubResource( 7 )
 animation = "Smoking"
-frame = 1
 playing = true
 
 [node name="ShipSprite" type="Sprite" parent="Ship"]
@@ -126,5 +127,13 @@ texture = ExtResource( 4 )
 [node name="Green5" type="Sprite" parent="Decoy"]
 position = Vector2( 775, 530 )
 texture = ExtResource( 4 )
+
+[node name="Camp" type="Sprite" parent="."]
+position = Vector2( 757, 433 )
+z_index = -1
+texture = ExtResource( 6 )
+
+[node name="Player" parent="." instance=ExtResource( 7 )]
+position = Vector2( 575, 432 )
 
 [connection signal="body_entered" from="ForestTrigger" to="." method="_on_ForestTrigger_body_entered"]
