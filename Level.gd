@@ -1,7 +1,5 @@
 extends Node2D
 
-onready var player = $"../Player"
-
 var spawnName
 
 var HUB = "HUB"
@@ -29,5 +27,5 @@ func changeLevel(from, to):
 		playerRespawn()
 		
 func playerRespawn():
-	player.position = self.get_child(0).get_node(spawnName).position
+	$"HUB/Player".position = self.get_child(0).get_node(spawnName).position
 		
