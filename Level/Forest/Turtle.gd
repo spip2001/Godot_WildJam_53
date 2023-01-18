@@ -1,7 +1,7 @@
 extends Node2D
 
 
-var speed = 100
+var speed = 80
 var velocity;
 
 
@@ -13,10 +13,11 @@ func _process(delta):
 	position += delta * velocity
 
 
-func _on_Area2D_body_entered(body):
+func _on_Turtle_body_entered(body):
 	if body.name == "FroggerPlayer":
 		body.setSafe(self)
-	
-func _on_Area2D_body_exited(body):
+
+
+func _on_Turtle_body_exited(body):
 	if body.name == "FroggerPlayer":
-		body.setUnsafe(self)
+		body.setUnsafe(self) # Replace with function body.

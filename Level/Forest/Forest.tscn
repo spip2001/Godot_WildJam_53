@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Player/FroggerPlayer.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Level/Forest/Forest.gd" type="Script" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://Level/Forest/Forest.png" type="Texture" id=4]
 [ext_resource path="res://Level/Forest/Turtle.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Level/Forest/Water.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Level/Forest/TurtleLine.gd" type="Script" id=7]
 
 [sub_resource type="TileSet" id=3]
 0/name = "Grass"
@@ -49,6 +50,9 @@ extents = Vector2( 704, 37 )
 [sub_resource type="RectangleShape2D" id=7]
 extents = Vector2( 37, 389 )
 
+[sub_resource type="RectangleShape2D" id=8]
+extents = Vector2( 32, 32 )
+
 [node name="Forest" type="Node2D"]
 script = ExtResource( 2 )
 
@@ -62,7 +66,7 @@ tile_data = PoolIntArray( 0, 0, 0, 1, 0, 0, 2, 0, 0, 3, 0, 0, 4, 0, 0, 5, 0, 0, 
 position = Vector2( 627, 693 )
 
 [node name="HubTrigger" type="Area2D" parent="."]
-position = Vector2( 608, 712 )
+position = Vector2( 608, 752 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HubTrigger"]
 position = Vector2( 33.5, 26.5 )
@@ -149,6 +153,7 @@ region_rect = Rect2( 0, 64, 64, 64 )
 
 [node name="TurtleLine1" type="Node2D" parent="."]
 position = Vector2( -32, 168 )
+script = ExtResource( 7 )
 
 [node name="Turtle" parent="TurtleLine1" instance=ExtResource( 5 )]
 position = Vector2( 1152, -3 )
@@ -213,8 +218,91 @@ position = Vector2( 64, -2 )
 [node name="Respawn" type="Node2D" parent="TurtleLine1"]
 position = Vector2( 1154, -3 )
 
+[node name="EndOfLine" type="Area2D" parent="TurtleLine1"]
+position = Vector2( 1344, -3 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TurtleLine1/EndOfLine"]
+position = Vector2( 0, -5 )
+shape = SubResource( 8 )
+
+[node name="TurtleLine4" type="Node2D" parent="."]
+position = Vector2( -40, 416 )
+script = ExtResource( 7 )
+
+[node name="Turtle" parent="TurtleLine4" instance=ExtResource( 5 )]
+position = Vector2( 1152, -3 )
+
+[node name="Water" parent="TurtleLine4" instance=ExtResource( 6 )]
+position = Vector2( 960, 2 )
+
+[node name="Water2" parent="TurtleLine4" instance=ExtResource( 6 )]
+position = Vector2( 896, 2 )
+
+[node name="Water3" parent="TurtleLine4" instance=ExtResource( 6 )]
+position = Vector2( 1088, 2 )
+
+[node name="Water11" parent="TurtleLine4" instance=ExtResource( 6 )]
+position = Vector2( 1216, -2 )
+
+[node name="Water12" parent="TurtleLine4" instance=ExtResource( 6 )]
+position = Vector2( 1280, -1 )
+
+[node name="Water4" parent="TurtleLine4" instance=ExtResource( 6 )]
+position = Vector2( 768, 2 )
+
+[node name="Water5" parent="TurtleLine4" instance=ExtResource( 6 )]
+position = Vector2( 640, -1 )
+
+[node name="Water6" parent="TurtleLine4" instance=ExtResource( 6 )]
+position = Vector2( 576, 0 )
+
+[node name="Water7" parent="TurtleLine4" instance=ExtResource( 6 )]
+position = Vector2( 448, -3 )
+
+[node name="Water8" parent="TurtleLine4" instance=ExtResource( 6 )]
+position = Vector2( 320, -3 )
+
+[node name="Water9" parent="TurtleLine4" instance=ExtResource( 6 )]
+position = Vector2( 256, -3 )
+
+[node name="Water10" parent="TurtleLine4" instance=ExtResource( 6 )]
+position = Vector2( 128, 2 )
+
+[node name="Turtle2" parent="TurtleLine4" instance=ExtResource( 5 )]
+position = Vector2( 1024, -2 )
+
+[node name="Turtle3" parent="TurtleLine4" instance=ExtResource( 5 )]
+position = Vector2( 832, -3 )
+
+[node name="Turtle4" parent="TurtleLine4" instance=ExtResource( 5 )]
+position = Vector2( 704, -1 )
+
+[node name="Turtle5" parent="TurtleLine4" instance=ExtResource( 5 )]
+position = Vector2( 512, -3 )
+
+[node name="Turtle6" parent="TurtleLine4" instance=ExtResource( 5 )]
+position = Vector2( 384, -3 )
+
+[node name="Turtle7" parent="TurtleLine4" instance=ExtResource( 5 )]
+position = Vector2( 192, -2 )
+
+[node name="Turtle8" parent="TurtleLine4" instance=ExtResource( 5 )]
+position = Vector2( 64, -2 )
+
+[node name="Respawn" type="Node2D" parent="TurtleLine4"]
+position = Vector2( 1154, -3 )
+
+[node name="EndOfLine" type="Area2D" parent="TurtleLine4"]
+position = Vector2( 1344, -3 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TurtleLine4/EndOfLine"]
+position = Vector2( 0, -5 )
+shape = SubResource( 8 )
+
 [node name="TurtleLine2" type="Node2D" parent="."]
-position = Vector2( -32, 547 )
+position = Vector2( 1312, 536 )
+rotation = 3.14159
+script = ExtResource( 7 )
 
 [node name="Turtle" parent="TurtleLine2" instance=ExtResource( 5 )]
 position = Vector2( 1152, -3 )
@@ -229,10 +317,10 @@ position = Vector2( 896, 2 )
 position = Vector2( 1088, 2 )
 
 [node name="Water11" parent="TurtleLine2" instance=ExtResource( 6 )]
-position = Vector2( 1216, 2 )
+position = Vector2( 1216, -2 )
 
 [node name="Water12" parent="TurtleLine2" instance=ExtResource( 6 )]
-position = Vector2( 1280, 1 )
+position = Vector2( 1280, -1 )
 
 [node name="Water4" parent="TurtleLine2" instance=ExtResource( 6 )]
 position = Vector2( 768, 2 )
@@ -279,8 +367,90 @@ position = Vector2( 64, -2 )
 [node name="Respawn" type="Node2D" parent="TurtleLine2"]
 position = Vector2( 1154, -3 )
 
+[node name="EndOfLine" type="Area2D" parent="TurtleLine2"]
+position = Vector2( 1344, -3 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TurtleLine2/EndOfLine"]
+position = Vector2( 0, -5 )
+shape = SubResource( 8 )
+
+[node name="TurtleLine3" type="Node2D" parent="."]
+position = Vector2( 1312, 288 )
+rotation = 3.14159
+script = ExtResource( 7 )
+
+[node name="Turtle" parent="TurtleLine3" instance=ExtResource( 5 )]
+position = Vector2( 1152, -3 )
+
+[node name="Water" parent="TurtleLine3" instance=ExtResource( 6 )]
+position = Vector2( 960, 2 )
+
+[node name="Water2" parent="TurtleLine3" instance=ExtResource( 6 )]
+position = Vector2( 896, 2 )
+
+[node name="Water3" parent="TurtleLine3" instance=ExtResource( 6 )]
+position = Vector2( 1088, 2 )
+
+[node name="Water11" parent="TurtleLine3" instance=ExtResource( 6 )]
+position = Vector2( 1216, -2 )
+
+[node name="Water12" parent="TurtleLine3" instance=ExtResource( 6 )]
+position = Vector2( 1280, -1 )
+
+[node name="Water4" parent="TurtleLine3" instance=ExtResource( 6 )]
+position = Vector2( 768, 2 )
+
+[node name="Water5" parent="TurtleLine3" instance=ExtResource( 6 )]
+position = Vector2( 640, -1 )
+
+[node name="Water6" parent="TurtleLine3" instance=ExtResource( 6 )]
+position = Vector2( 576, 0 )
+
+[node name="Water7" parent="TurtleLine3" instance=ExtResource( 6 )]
+position = Vector2( 448, -3 )
+
+[node name="Water8" parent="TurtleLine3" instance=ExtResource( 6 )]
+position = Vector2( 320, -3 )
+
+[node name="Water9" parent="TurtleLine3" instance=ExtResource( 6 )]
+position = Vector2( 256, -3 )
+
+[node name="Water10" parent="TurtleLine3" instance=ExtResource( 6 )]
+position = Vector2( 128, 2 )
+
+[node name="Turtle2" parent="TurtleLine3" instance=ExtResource( 5 )]
+position = Vector2( 1024, -2 )
+
+[node name="Turtle3" parent="TurtleLine3" instance=ExtResource( 5 )]
+position = Vector2( 832, -3 )
+
+[node name="Turtle4" parent="TurtleLine3" instance=ExtResource( 5 )]
+position = Vector2( 704, -1 )
+
+[node name="Turtle5" parent="TurtleLine3" instance=ExtResource( 5 )]
+position = Vector2( 512, -3 )
+
+[node name="Turtle6" parent="TurtleLine3" instance=ExtResource( 5 )]
+position = Vector2( 384, -3 )
+
+[node name="Turtle7" parent="TurtleLine3" instance=ExtResource( 5 )]
+position = Vector2( 192, -2 )
+
+[node name="Turtle8" parent="TurtleLine3" instance=ExtResource( 5 )]
+position = Vector2( 64, -2 )
+
+[node name="Respawn" type="Node2D" parent="TurtleLine3"]
+position = Vector2( 1154, -3 )
+
+[node name="EndOfLine" type="Area2D" parent="TurtleLine3"]
+position = Vector2( 1344, -3 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TurtleLine3/EndOfLine"]
+position = Vector2( 0, -5 )
+shape = SubResource( 8 )
+
 [node name="FroggerPlayer" parent="." instance=ExtResource( 1 )]
-position = Vector2( 640, 688 )
+position = Vector2( 642, 693 )
 
 [connection signal="body_entered" from="HubTrigger" to="." method="_on_HubTrigger_body_entered"]
 [connection signal="body_entered" from="TurtleLine1/Water" to="." method="_on_Water_body_entered"]
@@ -295,6 +465,20 @@ position = Vector2( 640, 688 )
 [connection signal="body_entered" from="TurtleLine1/Water8" to="." method="_on_Water_body_entered"]
 [connection signal="body_entered" from="TurtleLine1/Water9" to="." method="_on_Water_body_entered"]
 [connection signal="body_entered" from="TurtleLine1/Water10" to="." method="_on_Water_body_entered"]
+[connection signal="area_entered" from="TurtleLine1/EndOfLine" to="TurtleLine1" method="_on_EndOfLine_area_entered"]
+[connection signal="body_entered" from="TurtleLine4/Water" to="." method="_on_Water_body_entered"]
+[connection signal="body_entered" from="TurtleLine4/Water2" to="." method="_on_Water_body_entered"]
+[connection signal="body_entered" from="TurtleLine4/Water3" to="." method="_on_Water_body_entered"]
+[connection signal="body_entered" from="TurtleLine4/Water11" to="." method="_on_Water_body_entered"]
+[connection signal="body_entered" from="TurtleLine4/Water12" to="." method="_on_Water_body_entered"]
+[connection signal="body_entered" from="TurtleLine4/Water4" to="." method="_on_Water_body_entered"]
+[connection signal="body_entered" from="TurtleLine4/Water5" to="." method="_on_Water_body_entered"]
+[connection signal="body_entered" from="TurtleLine4/Water6" to="." method="_on_Water_body_entered"]
+[connection signal="body_entered" from="TurtleLine4/Water7" to="." method="_on_Water_body_entered"]
+[connection signal="body_entered" from="TurtleLine4/Water8" to="." method="_on_Water_body_entered"]
+[connection signal="body_entered" from="TurtleLine4/Water9" to="." method="_on_Water_body_entered"]
+[connection signal="body_entered" from="TurtleLine4/Water10" to="." method="_on_Water_body_entered"]
+[connection signal="area_entered" from="TurtleLine4/EndOfLine" to="TurtleLine4" method="_on_EndOfLine_area_entered"]
 [connection signal="body_entered" from="TurtleLine2/Water" to="." method="_on_Water_body_entered"]
 [connection signal="body_entered" from="TurtleLine2/Water2" to="." method="_on_Water_body_entered"]
 [connection signal="body_entered" from="TurtleLine2/Water3" to="." method="_on_Water_body_entered"]
@@ -307,3 +491,17 @@ position = Vector2( 640, 688 )
 [connection signal="body_entered" from="TurtleLine2/Water8" to="." method="_on_Water_body_entered"]
 [connection signal="body_entered" from="TurtleLine2/Water9" to="." method="_on_Water_body_entered"]
 [connection signal="body_entered" from="TurtleLine2/Water10" to="." method="_on_Water_body_entered"]
+[connection signal="area_entered" from="TurtleLine2/EndOfLine" to="TurtleLine2" method="_on_EndOfLine_area_entered"]
+[connection signal="body_entered" from="TurtleLine3/Water" to="." method="_on_Water_body_entered"]
+[connection signal="body_entered" from="TurtleLine3/Water2" to="." method="_on_Water_body_entered"]
+[connection signal="body_entered" from="TurtleLine3/Water3" to="." method="_on_Water_body_entered"]
+[connection signal="body_entered" from="TurtleLine3/Water11" to="." method="_on_Water_body_entered"]
+[connection signal="body_entered" from="TurtleLine3/Water12" to="." method="_on_Water_body_entered"]
+[connection signal="body_entered" from="TurtleLine3/Water4" to="." method="_on_Water_body_entered"]
+[connection signal="body_entered" from="TurtleLine3/Water5" to="." method="_on_Water_body_entered"]
+[connection signal="body_entered" from="TurtleLine3/Water6" to="." method="_on_Water_body_entered"]
+[connection signal="body_entered" from="TurtleLine3/Water7" to="." method="_on_Water_body_entered"]
+[connection signal="body_entered" from="TurtleLine3/Water8" to="." method="_on_Water_body_entered"]
+[connection signal="body_entered" from="TurtleLine3/Water9" to="." method="_on_Water_body_entered"]
+[connection signal="body_entered" from="TurtleLine3/Water10" to="." method="_on_Water_body_entered"]
+[connection signal="area_entered" from="TurtleLine3/EndOfLine" to="TurtleLine3" method="_on_EndOfLine_area_entered"]

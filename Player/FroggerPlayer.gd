@@ -6,7 +6,7 @@ var velocity: Vector2 = Vector2.ZERO
 var direction:Vector2 = Vector2.ZERO
 var maxSpeed = 250
 var safe:bool = false
-var safeOn
+var safeOn: Node2D
 var inWater: bool = false
 
 
@@ -25,7 +25,7 @@ func _physics_process(delta):
 	
 	velocity = direction * maxSpeed
 	if safeOn != null:
-		velocity += safeOn.velocity
+		velocity += safeOn.velocity * cos(deg2rad(safeOn.get_parent().rotation_degrees))
 		
 	velocity = move_and_slide(velocity)
 	
@@ -40,4 +40,4 @@ func setUnsafe(area):
 		
 func setInWater(val:bool):
 	if not safe:
-		print("Plouf")
+		position = $"../SpawnHUB".position

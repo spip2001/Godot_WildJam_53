@@ -1,7 +1,7 @@
 extends Area2D
 
 
-var speed = 100
+var speed = 80
 var velocity;
 
 
